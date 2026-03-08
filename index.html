@@ -139,6 +139,45 @@
             gap: 8px;
         }
 
+        .n8n-header .author-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 109, 0, 0.15);
+            border: 1px solid rgba(255, 109, 0, 0.3);
+            padding: 4px 12px 4px 4px;
+            border-radius: 50px;
+            margin-right: 12px;
+        }
+
+        .n8n-header .author-badge img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff6d00;
+        }
+
+        .n8n-header .author-badge .author-fallback {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6d00, #ff9800);
+            border: 2px solid #ff6d00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 9px;
+        }
+
+        .n8n-header .author-badge span.name {
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
         .n8n-header .status .dot {
             width: 8px;
             height: 8px;
@@ -655,6 +694,91 @@
             from { width: 0; }
             to { width: 100%; }
         }
+
+        /* Author Card */
+        .author-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 60px;
+            margin-top: 30px;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.8s;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .author-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 109, 0, 0.2);
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(255, 109, 0, 0.3);
+            background: linear-gradient(135deg, #2d2d44, #1a1a2e);
+        }
+
+        .author-avatar-svg {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(255, 109, 0, 0.3);
+            background: linear-gradient(135deg, #2d2d44, #1a1a2e);
+            overflow: hidden;
+        }
+
+        .author-avatar-fallback {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6d00, #ff9800);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(255, 109, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .author-name {
+            font-size: 16px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6d00, #ff9800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -696,6 +820,15 @@
         </div>
         
         <button class="start-btn" onclick="startDemo()">▶️ Démarrer la Démonstration</button>
+
+        <!-- Author Card -->
+        <div class="author-card">
+            <img src="rayene-marzouk.png" alt="Rayene Marzouk" class="author-avatar">
+            <div class="author-info">
+                <span class="author-label">Créé par</span>
+                <span class="author-name">Rayene Marzouk</span>
+            </div>
+        </div>
     </div>
 
     <!-- N8N Interface -->
@@ -713,6 +846,10 @@
                 <div class="tab">Evaluations</div>
             </div>
             <div class="status">
+                <div class="author-badge">
+                    <img src="rayene-marzouk.png" alt="RM">
+                    <span class="name">Rayene Marzouk</span>
+                </div>
                 <div class="dot"></div>
                 <span>Published</span>
             </div>
